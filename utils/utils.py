@@ -33,16 +33,25 @@ class MakeSignature:
 
     def get_url(self, method, param, aks):
         url_list = []
-        if isinstance(param, dict):
-            new_param = sorted(param.keys())  # 按照字典的key来排序，得到new_param是个list
-            for i in new_param:
-                intermediate_str = str(i) + '=' + str(param[i])
-                # print(intermediate_str)
+        new_param = dict(param)  # 不能直接将param赋值给new_param，而是将param的值赋给new_param
+        for i in new_param.keys():  # 检查传入param中每个key对应的value是否有中文，有的话转成url编码
+            inc_ch: bool = MakeSignature().is_chinese(new_param[i])
+            if inc_ch is True:
+                new_param[i] = MakeSignature().url_encode(new_param[i])
+            else:
+                pass
+        logging.info(f"**************原来的param没变****************仍然是{param}")
+        logging.info(f"完成中文url编码后的param为{new_param}")
+        if isinstance(new_param, dict):
+            param_key = sorted(new_param.keys())  # 按照字典的key来排序，得到param_key是个list
+            for i in param_key:
+                intermediate_str = str(i) + '=' + str(new_param[i])
                 url_list.append(intermediate_str)
         CanonicalizedQueryString = '&'.join(url_list)
-        # print(CanonicalizedQueryString)
+        logging.info(f"完成排序后的字符串为{CanonicalizedQueryString}")
         StringToSign = method + '&' + MakeSignature.url_encode(self, "/") + '&' + MakeSignature.url_encode(self,
                                                                                                            CanonicalizedQueryString)
+        logging.info(f"完成url编码后的字符串为{StringToSign}")
         signature = MakeSignature.HmacSHA1Encrypt(self, StringToSign, aks)
         logging.info(f"该接口生成的signature为：{signature}")
         param['Signature'] = signature
@@ -55,6 +64,12 @@ class MakeSignature:
     def HmacSHA1Encrypt(self, encrypt_text, encrypt_key):
         hmac_code = hmac.new(encrypt_key.encode(), encrypt_text.encode(), sha1).digest()
         return base64.b64encode(hmac_code).decode()
+
+    def is_chinese(self, value: str):
+        for ch in value:
+            if u'\u4e00' <= ch <= u'\u9fff':
+                return True
+        return False
 
 
 class SetEnv:
@@ -120,5 +135,5 @@ if __name__ == '__main__':
     # with open(f"{rootPath}/data/json.yaml", 'a', encoding="utf-8") as f:
     #     f.write(yaml.dump(body))
     set_env = SetEnv
-    print(set_env.get_param()["ecs_param"]["run_ecs"])
-    print(set_env.get_json()["run_ecs"])
+    print(set_env.get_param()["ecs_param"]["update_ecs_name"])
+    # print(set_env.get_json()["run_ecs"])

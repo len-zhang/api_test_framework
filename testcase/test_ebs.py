@@ -3,7 +3,7 @@ import pytest
 from api.ebs_api import EbsApi
 
 
-class TestDemo:
+class TestEbs:
     def setup_class(self):
         self.ebs_api = EbsApi()
 
