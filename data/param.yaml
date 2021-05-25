@@ -6,12 +6,12 @@ ecs_param:
     - Action: "UpdateEcsName"
       RegionId: "cn-tianjin-yfb"
       AccessKeyId: "yzleTuvKgYmSBs8Z"
-      InstanceId: "ecs-kscxwvysg7ko"
+      InstanceId: "${ecs_name}"
       InstanceName: "english"
     - Action: "UpdateEcsName"
       RegionId: "cn-tianjin-yfb"
       AccessKeyId: "yzleTuvKgYmSBs8Z"
-      InstanceId: "ecs-kscxwvysg7ko"
+      InstanceId: "${ecs_name}"
       InstanceName: "哈哈"
   describe_ecs:
     Action: "DescribeEcs"
@@ -19,6 +19,16 @@ ecs_param:
     AccessKeyId: "yzleTuvKgYmSBs8Z"
     Page: "1"
     Size: "10"
+  stop_ecs:
+    Action: "StopEcs"
+    RegionId: "cn-tianjin-yfb"
+    InstanceId: "${ecs_name}"
+    AccessKeyId: "yzleTuvKgYmSBs8Z"
+  delete_ecs:
+    Action: "DeleteEcs"
+    RegionId: "cn-tianjin-yfb"
+    InstanceId: "${ecs_name}"
+    AccessKeyId: "yzleTuvKgYmSBs8Z"
 ebs_param:
   describe_ebs:
     Action: "DescribeDisks"

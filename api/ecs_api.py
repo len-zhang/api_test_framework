@@ -29,7 +29,9 @@ class EcsApi(BaseApi):
                              "url": f"{self.url}/compute/ecs/instances",
                              "params": describe_ecs_param
                              }
-        return self.send_api(describe_ecs_data)
+        r = self.send_api(describe_ecs_data)
+        self.json_data = r.json()
+        return r
 
     def run_ecs(self, param, json):
         method = "POST"
@@ -40,6 +42,25 @@ class EcsApi(BaseApi):
                         "json": json
                         }
         r = self.send_api(run_ecs_data)
+        self.json_data = r.json()  # 将接口返回结果赋值给self.json_data，替换base_api中的None
+        return r
+
+    def delete_ecs(self, param):
+        method = "GET"
+        delete_ecs_param = MakeSignature().get_url(method, param, self.aks)
+        delete_ecs_data = {"method": "get",
+                           "url": f"{self.url}/compute/ecs/instances",
+                           "params": delete_ecs_param
+                           }
+        return self.send_api(delete_ecs_data)
+
+    def stop_ecs(self, param):
+        method = "GET"
+        stop_ecs_param = MakeSignature().get_url(method, param, self.aks)
+        stop_ecs_data = {"method": "get",
+                         "url": f"{self.url}/compute/ecs/instances",
+                         "params": stop_ecs_param
+                         }
+        r = self.send_api(stop_ecs_data)
         self.json_data = r.json()
-        logging.info(f"当前给对象的json_data赋值为{self.json_data}")
         return r

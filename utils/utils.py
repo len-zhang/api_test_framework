@@ -3,10 +3,11 @@ import logging
 import os
 import base64
 import hmac
+import re
+import shutil
 from hashlib import sha1
 import urllib.parse
 import yaml
-
 from api.base_api import BaseApi
 
 curPath = os.path.abspath(os.path.dirname(__file__))
@@ -40,20 +41,20 @@ class MakeSignature:
                 new_param[i] = MakeSignature().url_encode(new_param[i])
             else:
                 pass
-        logging.info(f"**************原来的param没变****************仍然是{param}")
-        logging.info(f"完成中文url编码后的param为{new_param}")
+        logging.debug(f"**************原来的param没变****************仍然是{param}")
+        logging.debug(f"完成中文url编码后的param为{new_param}")
         if isinstance(new_param, dict):
             param_key = sorted(new_param.keys())  # 按照字典的key来排序，得到param_key是个list
             for i in param_key:
                 intermediate_str = str(i) + '=' + str(new_param[i])
                 url_list.append(intermediate_str)
         CanonicalizedQueryString = '&'.join(url_list)
-        logging.info(f"完成排序后的字符串为{CanonicalizedQueryString}")
+        logging.debug(f"完成排序后的字符串为{CanonicalizedQueryString}")
         StringToSign = method + '&' + MakeSignature.url_encode(self, "/") + '&' + MakeSignature.url_encode(self,
                                                                                                            CanonicalizedQueryString)
-        logging.info(f"完成url编码后的字符串为{StringToSign}")
+        logging.debug(f"完成url编码后的字符串为{StringToSign}")
         signature = MakeSignature.HmacSHA1Encrypt(self, StringToSign, aks)
-        logging.info(f"该接口生成的signature为：{signature}")
+        logging.debug(f"该接口生成的signature为：{signature}")
         param['Signature'] = signature
         return param
 
@@ -95,6 +96,27 @@ class SetEnv:
             json_data = yaml.safe_load(f)
             return json_data
 
+    @classmethod
+    def replace_param(cls, new_name):
+        origin_file = f'{rootPath}/data/param.yaml'
+        bak_file = origin_file + '.bak'
+        temp_file = origin_file + '.temp'
+        if not os.path.exists(bak_file):
+            shutil.copy2(origin_file, bak_file)
+        with open(origin_file, encoding="utf-8", mode='r') as fr, open(temp_file, encoding="utf-8", mode='w') as fw:
+            for line in fr:
+                re_sub_list = re.sub(pattern="\\$\\{ecs_name\\}", repl=new_name, string=line)
+                fw.writelines(re_sub_list)
+        os.remove(origin_file)
+        os.rename(temp_file, origin_file)
+
+    @classmethod
+    def recovery_param(cls):
+        origin_file = f'{rootPath}/data/param.yaml'
+        bak_file = origin_file + '.bak'
+        os.remove(origin_file)
+        os.rename(bak_file, origin_file)
+
 
 if __name__ == '__main__':
     # test = MakeSignature()
@@ -132,8 +154,9 @@ if __name__ == '__main__':
     #         }
     #     ]
     # }
-    # with open(f"{rootPath}/data/json.yaml", 'a', encoding="utf-8") as f:
-    #     f.write(yaml.dump(body))
     set_env = SetEnv
-    print(set_env.get_param()["ecs_param"]["update_ecs_name"])
+    # dic = set_env.get_param()["ecs_param"]["update_ecs_name"][0]
+    # for key in dic.keys():
+    #     print(key)
     # print(set_env.get_json()["run_ecs"])
+    set_env.replace_param("yyyyyyyyyyyyy")
