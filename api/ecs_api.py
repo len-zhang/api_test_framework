@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-import logging
+from utils.logger import logger
 from api.base_api import BaseApi
 from utils.utils import MakeSignature, SetEnv
 
@@ -19,8 +19,10 @@ class EcsApi(BaseApi):
                                 "url": f"{self.url}/compute/ecs/instances",
                                 "params": update_ecs_name_param
                                 }
-        logging.info(f"传给send_api作为参数的data数据为{update_ecs_name_data}")
-        return self.send_api(update_ecs_name_data)
+        logger.logger.info(f"传给send_api作为参数的data数据为{update_ecs_name_data}")
+        r = self.send_api(update_ecs_name_data)
+        self.json_data = r.json()
+        return r
 
     def describe_ecs(self, param):
         method = "GET"

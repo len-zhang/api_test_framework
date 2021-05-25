@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 import json
 import requests
-import logging
-
+from utils.logger import logger
 from jsonpath import jsonpath
 
 
@@ -10,10 +9,10 @@ class BaseApi:
     json_data = None
 
     def send_api(self, data: dict):
-        logging.info(f"传给send_api的原始data数据为：{json.dumps(data, indent=4, ensure_ascii=False)}")
+        logger.logger.info(f"传给send_api的原始data数据为：{json.dumps(data, indent=4, ensure_ascii=False)}")
         r = requests.request(**data)
-        logging.warning(f"发送接口的请求url为：{r.url}")
-        logging.warning(f"发送接口的返回原始数据为：{r.text}")
+        logger.logger.warning(f"发送接口的请求url为：{r.url}")
+        logger.logger.warning(f"发送接口的返回原始数据为：{r.text}")
         return r
 
     def get_jsonpath(self, expr):

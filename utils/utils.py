@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-import logging
+from utils.logger import logger
 import os
 import base64
 import hmac
@@ -41,20 +41,20 @@ class MakeSignature:
                 new_param[i] = MakeSignature().url_encode(new_param[i])
             else:
                 pass
-        logging.debug(f"**************原来的param没变****************仍然是{param}")
-        logging.debug(f"完成中文url编码后的param为{new_param}")
+        logger.logger.debug(f"**************原来的param没变****************仍然是{param}")
+        logger.logger.debug(f"完成中文url编码后的param为{new_param}")
         if isinstance(new_param, dict):
             param_key = sorted(new_param.keys())  # 按照字典的key来排序，得到param_key是个list
             for i in param_key:
                 intermediate_str = str(i) + '=' + str(new_param[i])
                 url_list.append(intermediate_str)
         CanonicalizedQueryString = '&'.join(url_list)
-        logging.debug(f"完成排序后的字符串为{CanonicalizedQueryString}")
+        logger.logger.debug(f"完成排序后的字符串为{CanonicalizedQueryString}")
         StringToSign = method + '&' + MakeSignature.url_encode(self, "/") + '&' + MakeSignature.url_encode(self,
                                                                                                            CanonicalizedQueryString)
-        logging.debug(f"完成url编码后的字符串为{StringToSign}")
+        logger.logger.debug(f"完成url编码后的字符串为{StringToSign}")
         signature = MakeSignature.HmacSHA1Encrypt(self, StringToSign, aks)
-        logging.debug(f"该接口生成的signature为：{signature}")
+        logger.logger.debug(f"该接口生成的signature为：{signature}")
         param['Signature'] = signature
         return param
 
@@ -159,4 +159,4 @@ if __name__ == '__main__':
     # for key in dic.keys():
     #     print(key)
     # print(set_env.get_json()["run_ecs"])
-    set_env.replace_param("yyyyyyyyyyyyy")
+    print(os.path.dirname(os.getcwd()))
