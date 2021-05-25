@@ -15,6 +15,7 @@ from utils.utils import SetEnv
 
 @pytest.fixture()
 def resource_ready_destroy():
+    logger.logger.info("========================进入用例前置步骤========================")
     time1 = 0
     time2 = 0
     ecs = EcsApi()
@@ -42,8 +43,8 @@ def resource_ready_destroy():
             exit()
             break
     SetEnv.replace_param(ecs_name[0])  # 修改pram.yaml文件中的${ecs_name}
-    yield ecs_name[0]
-    logger.logger.info("=================进入用例后置步骤=================")
+    yield ecs_name[0], ecs
+    logger.logger.info("========================进入用例后置步骤========================")
     result = ecs.stop_ecs(EcsApi().param_config["ecs_param"]["stop_ecs"]).status_code
     if result == 200:
         while True:

@@ -1,0 +1,704 @@
+2021-05-25 20:13:11,468 - utils.logger - INFO - =================进入用例前置步骤=================
+2021-05-25 20:13:11,503 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'RunEcs', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:13:11,504 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'RunEcs', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:13:11,504 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=RunEcs
+2021-05-25 20:13:11,504 - utils.logger - DEBUG - 完成url编码后的字符串为POST&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DRunEcs
+2021-05-25 20:13:11,505 - utils.logger - DEBUG - 该接口生成的signature为：aHhAuT4YrvQUzFKfBSCDtee2HYY=
+2021-05-25 20:13:11,505 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "post",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "RunEcs",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Signature": "aHhAuT4YrvQUzFKfBSCDtee2HYY="
+    },
+    "json": {
+        "azoneId": "cn-tianjin-yfb1",
+        "baseQuantity": 1,
+        "dataDisks": [
+            {
+                "dataDiskSize": 20,
+                "dataDiskSpecificationCode": "ebs.hybrid.hdd"
+            }
+        ],
+        "hostName": "auto-hostname",
+        "imageId": "CentOS_7_7_64bit_Minimal_std",
+        "imageSpecificationClassCode": "ecs.image.public",
+        "instanceName": "autotest-ecs",
+        "masterEniSubNetId": "subnet-mmg7gt30dxopb",
+        "password": "qwer1234",
+        "payType": "YEAR_MONTH",
+        "period": 1,
+        "regionId": "cn-tianjin-yfb",
+        "securityGroupId": "sg-f7pwsrqt7g6ob",
+        "sysDiskSize": 40,
+        "sysDiskSpecificationCode": "ebs.hybrid.hdd",
+        "vmSpecificationCode": "c1.medium.2",
+        "vpcId": "vpc-lmg7gt30dxopb"
+    }
+}
+2021-05-25 20:13:12,683 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=RunEcs&AccessKeyId=yzleTuvKgYmSBs8Z&Signature=aHhAuT4YrvQUzFKfBSCDtee2HYY%3D
+2021-05-25 20:13:12,684 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"deeb9a21-65f8-4540-bcde-185ea0c2b0c3","orderId":"1397163839572754455","instanceIds":["ecs-kwfbi4lg7df0"]}
+2021-05-25 20:13:12,685 - utils.logger - DEBUG - ==========jsonpath获取到的实例id为['ecs-kwfbi4lg7df0']==========
+2021-05-25 20:13:12,685 - utils.logger - INFO - ==========等待查询主机列表接口可以返回主机信息==========
+2021-05-25 20:13:22,693 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:22,693 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:22,693 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:13:22,693 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:13:22,693 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:13:22,694 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:13:23,289 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:13:23,289 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944792000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"CREATING","eipAddr":null,"ip":null,"description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"0f724162-d0df-41a8-bb8e-338178b9728f"}
+2021-05-25 20:13:23,289 - utils.logger - INFO - 检查主机实例当前的状态为['CREATING']
+2021-05-25 20:13:33,298 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:33,299 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:33,299 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:13:33,299 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:13:33,299 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:13:33,299 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:13:33,887 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:13:33,888 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944792000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"CREATING","eipAddr":null,"ip":null,"description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"4849df75-bf50-4c9d-a744-92e5b127a8a4"}
+2021-05-25 20:13:33,888 - utils.logger - INFO - 检查主机实例当前的状态为['CREATING']
+2021-05-25 20:13:43,896 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:43,896 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:43,897 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:13:43,897 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:13:43,897 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:13:43,897 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:13:44,411 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:13:44,412 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944792000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"CREATING","eipAddr":null,"ip":null,"description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"66241ccd-11ba-49d9-8864-e95aebbb9d9f"}
+2021-05-25 20:13:44,412 - utils.logger - INFO - 检查主机实例当前的状态为['CREATING']
+2021-05-25 20:13:54,420 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:54,420 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:13:54,420 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:13:54,420 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:13:54,420 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:13:54,420 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:13:54,940 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:13:54,940 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944792000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"CREATING","eipAddr":null,"ip":null,"description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"d6410233-a9bd-4207-88cb-5ac82a68da35"}
+2021-05-25 20:13:54,941 - utils.logger - INFO - 检查主机实例当前的状态为['CREATING']
+2021-05-25 20:14:04,949 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:04,949 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:04,949 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:14:04,949 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:14:04,949 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:14:04,950 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:14:05,487 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:14:05,488 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944838000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"RUNNING","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"526bb410-d1d6-4768-ba10-3faed2f38a07"}
+2021-05-25 20:14:05,489 - utils.logger - INFO - 检查主机实例当前的状态为['RUNNING']
+2021-05-25 20:14:05,493 - utils.logger - INFO - 原始yaml文件中的param为：{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': '${ecs_name}', 'InstanceName': 'english'}
+2021-05-25 20:14:05,493 - utils.logger - INFO - 替换后的yaml文件中param为：{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbi4lg7df0', 'InstanceName': 'english'}
+2021-05-25 20:14:05,493 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbi4lg7df0', 'InstanceName': 'english'}
+2021-05-25 20:14:05,493 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbi4lg7df0', 'InstanceName': 'english'}
+2021-05-25 20:14:05,494 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=UpdateEcsName&InstanceId=ecs-kwfbi4lg7df0&InstanceName=english&RegionId=cn-tianjin-yfb
+2021-05-25 20:14:05,494 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DUpdateEcsName%26InstanceId%3Decs-kwfbi4lg7df0%26InstanceName%3Denglish%26RegionId%3Dcn-tianjin-yfb
+2021-05-25 20:14:05,494 - utils.logger - DEBUG - 该接口生成的signature为：bSAKnQJxJTHNUjbz4gqi5GCTKnc=
+2021-05-25 20:14:05,494 - utils.logger - INFO - 传给send_api作为参数的data数据为{'method': 'get', 'url': 'http://10.0.45.193:30990/compute/ecs/instances', 'params': {'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbi4lg7df0', 'InstanceName': 'english', 'Signature': 'bSAKnQJxJTHNUjbz4gqi5GCTKnc='}}
+2021-05-25 20:14:05,494 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "UpdateEcsName",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "InstanceId": "ecs-kwfbi4lg7df0",
+        "InstanceName": "english",
+        "Signature": "bSAKnQJxJTHNUjbz4gqi5GCTKnc="
+    }
+}
+2021-05-25 20:14:05,656 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=UpdateEcsName&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&InstanceId=ecs-kwfbi4lg7df0&InstanceName=english&Signature=bSAKnQJxJTHNUjbz4gqi5GCTKnc%3D
+2021-05-25 20:14:05,656 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"7109b518-d6d8-4f2f-9022-9e386a3efbf0"}
+2021-05-25 20:14:05,657 - utils.logger - INFO - =================进入用例后置步骤=================
+2021-05-25 20:14:05,670 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'StopEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbi4lg7df0', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:14:05,670 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'StopEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbi4lg7df0', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:14:05,670 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=StopEcs&InstanceId=ecs-kwfbi4lg7df0&RegionId=cn-tianjin-yfb
+2021-05-25 20:14:05,670 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DStopEcs%26InstanceId%3Decs-kwfbi4lg7df0%26RegionId%3Dcn-tianjin-yfb
+2021-05-25 20:14:05,670 - utils.logger - DEBUG - 该接口生成的signature为：Au2QqN137ehEEfs39lIsXFbe+Hk=
+2021-05-25 20:14:05,671 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "StopEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "InstanceId": "ecs-kwfbi4lg7df0",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Signature": "Au2QqN137ehEEfs39lIsXFbe+Hk="
+    }
+}
+2021-05-25 20:14:05,872 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=StopEcs&RegionId=cn-tianjin-yfb&InstanceId=ecs-kwfbi4lg7df0&AccessKeyId=yzleTuvKgYmSBs8Z&Signature=Au2QqN137ehEEfs39lIsXFbe%2BHk%3D
+2021-05-25 20:14:05,873 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"11d64e2b-d8b8-47d9-aed1-4e6e4381ec8b"}
+2021-05-25 20:14:05,881 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:05,881 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:05,881 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:14:05,881 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:14:05,881 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:14:05,881 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:14:06,404 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:14:06,404 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944838000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"english","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"f6fdc6bf-6ca3-4af2-9f94-3fd914729dd6"}
+2021-05-25 20:14:06,404 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:14:11,412 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:11,413 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:11,413 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:14:11,413 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:14:11,413 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:14:11,413 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:14:11,913 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:14:11,913 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944838000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"english","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"eaeac32f-c9cd-4a0a-b463-72e86d1fcda5"}
+2021-05-25 20:14:11,914 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:14:16,922 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:16,922 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:16,922 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:14:16,922 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:14:16,922 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:14:16,922 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:14:17,489 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:14:17,490 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944838000,"sysDiskId":"sys-kwfbi4mnnnbl","status":"DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"english","sysDiskSize":40,"instanceId":"ecs-kwfbi4lg7df0","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbi4nwltjv","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"6870112a-dbec-4365-ac5f-e24c334188c8"}
+2021-05-25 20:14:17,491 - utils.logger - INFO - 检查主机实例当前的状态为['DOWN']
+2021-05-25 20:14:17,502 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DeleteEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbi4lg7df0', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:14:17,503 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DeleteEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbi4lg7df0', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:14:17,503 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DeleteEcs&InstanceId=ecs-kwfbi4lg7df0&RegionId=cn-tianjin-yfb
+2021-05-25 20:14:17,503 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDeleteEcs%26InstanceId%3Decs-kwfbi4lg7df0%26RegionId%3Dcn-tianjin-yfb
+2021-05-25 20:14:17,503 - utils.logger - DEBUG - 该接口生成的signature为：HlQL0sf1E/VZlD8j6dzN+7o5COY=
+2021-05-25 20:14:17,503 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DeleteEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "InstanceId": "ecs-kwfbi4lg7df0",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Signature": "HlQL0sf1E/VZlD8j6dzN+7o5COY="
+    }
+}
+2021-05-25 20:14:17,995 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DeleteEcs&RegionId=cn-tianjin-yfb&InstanceId=ecs-kwfbi4lg7df0&AccessKeyId=yzleTuvKgYmSBs8Z&Signature=HlQL0sf1E%2FVZlD8j6dzN%2B7o5COY%3D
+2021-05-25 20:14:17,995 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"b80d3ae4-a213-4ac3-a38f-5b7dc371f4ca"}
+2021-05-25 20:14:17,997 - utils.logger - INFO - =================进入用例前置步骤=================
+2021-05-25 20:14:18,022 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'RunEcs', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:14:18,022 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'RunEcs', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:14:18,022 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=RunEcs
+2021-05-25 20:14:18,022 - utils.logger - DEBUG - 完成url编码后的字符串为POST&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DRunEcs
+2021-05-25 20:14:18,022 - utils.logger - DEBUG - 该接口生成的signature为：aHhAuT4YrvQUzFKfBSCDtee2HYY=
+2021-05-25 20:14:18,022 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "post",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "RunEcs",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Signature": "aHhAuT4YrvQUzFKfBSCDtee2HYY="
+    },
+    "json": {
+        "azoneId": "cn-tianjin-yfb1",
+        "baseQuantity": 1,
+        "dataDisks": [
+            {
+                "dataDiskSize": 20,
+                "dataDiskSpecificationCode": "ebs.hybrid.hdd"
+            }
+        ],
+        "hostName": "auto-hostname",
+        "imageId": "CentOS_7_7_64bit_Minimal_std",
+        "imageSpecificationClassCode": "ecs.image.public",
+        "instanceName": "autotest-ecs",
+        "masterEniSubNetId": "subnet-mmg7gt30dxopb",
+        "password": "qwer1234",
+        "payType": "YEAR_MONTH",
+        "period": 1,
+        "regionId": "cn-tianjin-yfb",
+        "securityGroupId": "sg-f7pwsrqt7g6ob",
+        "sysDiskSize": 40,
+        "sysDiskSpecificationCode": "ebs.hybrid.hdd",
+        "vmSpecificationCode": "c1.medium.2",
+        "vpcId": "vpc-lmg7gt30dxopb"
+    }
+}
+2021-05-25 20:14:19,157 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=RunEcs&AccessKeyId=yzleTuvKgYmSBs8Z&Signature=aHhAuT4YrvQUzFKfBSCDtee2HYY%3D
+2021-05-25 20:14:19,157 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"867ae1d7-8e1c-44b4-ac57-72219d663a67","orderId":"1397164118842097700","instanceIds":["ecs-kwfbmotikczv"]}
+2021-05-25 20:14:19,158 - utils.logger - DEBUG - ==========jsonpath获取到的实例id为['ecs-kwfbmotikczv']==========
+2021-05-25 20:14:19,158 - utils.logger - INFO - ==========等待查询主机列表接口可以返回主机信息==========
+2021-05-25 20:14:29,165 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:29,166 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:29,166 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:14:29,166 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:14:29,166 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:14:29,166 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:14:29,686 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:14:29,686 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944859000,"sysDiskId":"sys-kwfbmouo0mv9","status":"CREATING","eipAddr":null,"ip":null,"description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"4afd9293-1171-444e-b8a3-6ef74a99d65d"}
+2021-05-25 20:14:29,686 - utils.logger - INFO - 检查主机实例当前的状态为['CREATING']
+2021-05-25 20:14:39,694 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:39,694 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:39,694 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:14:39,695 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:14:39,695 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:14:39,695 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:14:40,262 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:14:40,263 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944859000,"sysDiskId":"sys-kwfbmouo0mv9","status":"CREATING","eipAddr":null,"ip":null,"description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"21f25265-4331-49e1-a0e1-2b7795d486e8"}
+2021-05-25 20:14:40,263 - utils.logger - INFO - 检查主机实例当前的状态为['CREATING']
+2021-05-25 20:14:50,270 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:50,270 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:14:50,270 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:14:50,271 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:14:50,271 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:14:50,271 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:14:50,818 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:14:50,819 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944859000,"sysDiskId":"sys-kwfbmouo0mv9","status":"CREATING","eipAddr":null,"ip":null,"description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"5ecb940f-d6a0-45b5-8512-3130c740c522"}
+2021-05-25 20:14:50,820 - utils.logger - INFO - 检查主机实例当前的状态为['CREATING']
+2021-05-25 20:15:00,828 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:00,828 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:00,828 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:00,828 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:00,828 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:00,828 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:01,349 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:01,350 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"RUNNING","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"autotest-ecs","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"bac6442f-96f5-4697-ae50-99e25925dd1a"}
+2021-05-25 20:15:01,350 - utils.logger - INFO - 检查主机实例当前的状态为['RUNNING']
+2021-05-25 20:15:01,353 - utils.logger - INFO - 原始yaml文件中的param为：{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': '${ecs_name}', 'InstanceName': '哈哈'}
+2021-05-25 20:15:01,353 - utils.logger - INFO - 替换后的yaml文件中param为：{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbmotikczv', 'InstanceName': '哈哈'}
+2021-05-25 20:15:01,353 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbmotikczv', 'InstanceName': '哈哈'}
+2021-05-25 20:15:01,353 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbmotikczv', 'InstanceName': '%E5%93%88%E5%93%88'}
+2021-05-25 20:15:01,353 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=UpdateEcsName&InstanceId=ecs-kwfbmotikczv&InstanceName=%E5%93%88%E5%93%88&RegionId=cn-tianjin-yfb
+2021-05-25 20:15:01,354 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DUpdateEcsName%26InstanceId%3Decs-kwfbmotikczv%26InstanceName%3D%25E5%2593%2588%25E5%2593%2588%26RegionId%3Dcn-tianjin-yfb
+2021-05-25 20:15:01,354 - utils.logger - DEBUG - 该接口生成的signature为：BmTry99eN/G4NzQ6lfPo9etTbds=
+2021-05-25 20:15:01,354 - utils.logger - INFO - 传给send_api作为参数的data数据为{'method': 'get', 'url': 'http://10.0.45.193:30990/compute/ecs/instances', 'params': {'Action': 'UpdateEcsName', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'InstanceId': 'ecs-kwfbmotikczv', 'InstanceName': '哈哈', 'Signature': 'BmTry99eN/G4NzQ6lfPo9etTbds='}}
+2021-05-25 20:15:01,354 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "UpdateEcsName",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "InstanceId": "ecs-kwfbmotikczv",
+        "InstanceName": "哈哈",
+        "Signature": "BmTry99eN/G4NzQ6lfPo9etTbds="
+    }
+}
+2021-05-25 20:15:01,448 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=UpdateEcsName&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&InstanceId=ecs-kwfbmotikczv&InstanceName=%E5%93%88%E5%93%88&Signature=BmTry99eN%2FG4NzQ6lfPo9etTbds%3D
+2021-05-25 20:15:01,449 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"ff96c397-6263-4f47-a518-c7c7cef4606f"}
+2021-05-25 20:15:01,450 - utils.logger - INFO - =================进入用例后置步骤=================
+2021-05-25 20:15:01,465 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'StopEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbmotikczv', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:15:01,465 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'StopEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbmotikczv', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:15:01,465 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=StopEcs&InstanceId=ecs-kwfbmotikczv&RegionId=cn-tianjin-yfb
+2021-05-25 20:15:01,465 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DStopEcs%26InstanceId%3Decs-kwfbmotikczv%26RegionId%3Dcn-tianjin-yfb
+2021-05-25 20:15:01,465 - utils.logger - DEBUG - 该接口生成的signature为：o0zRVXn4jsCdKr2Y/Usd4qEUYt8=
+2021-05-25 20:15:01,465 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "StopEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "InstanceId": "ecs-kwfbmotikczv",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Signature": "o0zRVXn4jsCdKr2Y/Usd4qEUYt8="
+    }
+}
+2021-05-25 20:15:01,657 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=StopEcs&RegionId=cn-tianjin-yfb&InstanceId=ecs-kwfbmotikczv&AccessKeyId=yzleTuvKgYmSBs8Z&Signature=o0zRVXn4jsCdKr2Y%2FUsd4qEUYt8%3D
+2021-05-25 20:15:01,657 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"12a9368c-2ab9-47db-92c7-eb66c08d46b7"}
+2021-05-25 20:15:01,666 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:01,666 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:01,666 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:01,666 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:01,666 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:01,667 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:02,234 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:02,234 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"8a72cbb6-5240-4e28-a9d4-f9c67adca492"}
+2021-05-25 20:15:02,234 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:07,242 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:07,242 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:07,242 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:07,242 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:07,242 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:07,242 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:07,759 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:07,760 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"c207ab15-551e-4c83-ad12-0f07d0419534"}
+2021-05-25 20:15:07,760 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:12,768 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:12,768 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:12,768 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:12,768 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:12,769 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:12,769 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:13,302 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:13,303 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"6cf257c5-2fce-481e-87a2-5ccf640db499"}
+2021-05-25 20:15:13,303 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:18,310 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:18,310 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:18,310 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:18,311 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:18,311 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:18,311 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:18,814 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:18,815 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"b258cc24-4274-4dbe-9aa0-ea3f779abd58"}
+2021-05-25 20:15:18,816 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:23,825 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:23,825 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:23,826 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:23,826 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:23,826 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:23,826 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:24,365 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:24,365 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"0fad4632-7f84-4af9-9482-543053dd95e1"}
+2021-05-25 20:15:24,365 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:29,372 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:29,372 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:29,372 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:29,372 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:29,372 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:29,372 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:29,906 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:29,907 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"1c82fe08-9680-4739-8fe9-db501ec48a30"}
+2021-05-25 20:15:29,907 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:34,914 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:34,914 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:34,914 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:34,914 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:34,914 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:34,916 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:35,521 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:35,522 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"d0da688c-7386-42eb-9f66-03f77fce6fee"}
+2021-05-25 20:15:35,522 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:40,530 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:40,531 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:40,531 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:40,531 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:40,531 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:40,531 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:41,071 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:41,071 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"63c387b9-f247-4bbe-9fe5-b2ae853ac665"}
+2021-05-25 20:15:41,072 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:46,079 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:46,079 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:46,079 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:46,079 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:46,079 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:46,079 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:46,598 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:46,598 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"cfb43751-fe36-4366-ab4f-83003a3dbf09"}
+2021-05-25 20:15:46,598 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:51,606 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:51,606 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:51,606 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:51,606 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:51,606 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:51,606 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:52,139 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:52,139 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"3c8b9fb6-d512-4a54-8012-ad3851e6ee92"}
+2021-05-25 20:15:52,140 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:15:57,149 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:57,149 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:15:57,149 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:15:57,149 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:15:57,149 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:15:57,149 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:15:57,739 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:15:57,740 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"1b782faa-0d18-40fd-bc85-7ad383436aab"}
+2021-05-25 20:15:57,740 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:16:02,749 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:16:02,749 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:16:02,749 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:16:02,749 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:16:02,749 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:16:02,749 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:16:03,296 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:16:03,297 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"SHUTTING_DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"d90feadb-84cf-4dcc-b1c6-992dc148347c"}
+2021-05-25 20:16:03,297 - utils.logger - INFO - 检查主机实例当前的状态为['SHUTTING_DOWN']
+2021-05-25 20:16:08,310 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:16:08,310 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DescribeEcs', 'RegionId': 'cn-tianjin-yfb', 'AccessKeyId': 'yzleTuvKgYmSBs8Z', 'Page': '1', 'Size': '10'}
+2021-05-25 20:16:08,310 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DescribeEcs&Page=1&RegionId=cn-tianjin-yfb&Size=10
+2021-05-25 20:16:08,310 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDescribeEcs%26Page%3D1%26RegionId%3Dcn-tianjin-yfb%26Size%3D10
+2021-05-25 20:16:08,310 - utils.logger - DEBUG - 该接口生成的signature为：SBbq68SlUccFqRkDq8IYz9Dg128=
+2021-05-25 20:16:08,310 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DescribeEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Page": "1",
+        "Size": "10",
+        "Signature": "SBbq68SlUccFqRkDq8IYz9Dg128="
+    }
+}
+2021-05-25 20:16:08,819 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DescribeEcs&RegionId=cn-tianjin-yfb&AccessKeyId=yzleTuvKgYmSBs8Z&Page=1&Size=10&Signature=SBbq68SlUccFqRkDq8IYz9Dg128%3D
+2021-05-25 20:16:08,820 - utils.logger - WARNING - 发送接口的返回原始数据为：{"list":[{"instanceCode":"c1.medium.2","startTime":1621944895000,"sysDiskId":"sys-kwfbmouo0mv9","status":"DOWN","eipAddr":null,"ip":"10.200.50.10","description":null,"instanceCodeName":"计算型1核2GB","sysDiskCode":"ebs.hybrid.hdd","instanceName":"哈哈","sysDiskSize":40,"instanceId":"ecs-kwfbmotikczv","eipSize":null,"secondaryEni":null,"imageParentCode":"ecs.image.public","eniId":"eni-kwfbmovsy0fe","eipCode":null,"eipId":null,"endTime":1624636800000,"payType":"YEAR_MONTH","imageType":"linux","imageId":"CentOS_7_7_64bit_Minimal_std","imageCode":"CentOS_7_7_64bit_Minimal_std","azoneId":"cn-tianjin-yfb1","bindDiskCount":1}],"size":10,"totalCount":1,"totalPages":1,"page":1,"RequestId":"5c53941a-b75d-4fe7-8036-d6cfe7e917ae"}
+2021-05-25 20:16:08,820 - utils.logger - INFO - 检查主机实例当前的状态为['DOWN']
+2021-05-25 20:16:08,827 - utils.logger - DEBUG - **************原来的param没变****************仍然是{'Action': 'DeleteEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbmotikczv', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:16:08,827 - utils.logger - DEBUG - 完成中文url编码后的param为{'Action': 'DeleteEcs', 'RegionId': 'cn-tianjin-yfb', 'InstanceId': 'ecs-kwfbmotikczv', 'AccessKeyId': 'yzleTuvKgYmSBs8Z'}
+2021-05-25 20:16:08,828 - utils.logger - DEBUG - 完成排序后的字符串为AccessKeyId=yzleTuvKgYmSBs8Z&Action=DeleteEcs&InstanceId=ecs-kwfbmotikczv&RegionId=cn-tianjin-yfb
+2021-05-25 20:16:08,828 - utils.logger - DEBUG - 完成url编码后的字符串为GET&%2F&AccessKeyId%3DyzleTuvKgYmSBs8Z%26Action%3DDeleteEcs%26InstanceId%3Decs-kwfbmotikczv%26RegionId%3Dcn-tianjin-yfb
+2021-05-25 20:16:08,828 - utils.logger - DEBUG - 该接口生成的signature为：/hVQnAnAZvMuKhe4nh0lzE2DIJs=
+2021-05-25 20:16:08,828 - utils.logger - INFO - 传给send_api的原始data数据为：{
+    "method": "get",
+    "url": "http://10.0.45.193:30990/compute/ecs/instances",
+    "params": {
+        "Action": "DeleteEcs",
+        "RegionId": "cn-tianjin-yfb",
+        "InstanceId": "ecs-kwfbmotikczv",
+        "AccessKeyId": "yzleTuvKgYmSBs8Z",
+        "Signature": "/hVQnAnAZvMuKhe4nh0lzE2DIJs="
+    }
+}
+2021-05-25 20:16:09,288 - utils.logger - WARNING - 发送接口的请求url为：http://10.0.45.193:30990/compute/ecs/instances?Action=DeleteEcs&RegionId=cn-tianjin-yfb&InstanceId=ecs-kwfbmotikczv&AccessKeyId=yzleTuvKgYmSBs8Z&Signature=%2FhVQnAnAZvMuKhe4nh0lzE2DIJs%3D
+2021-05-25 20:16:09,288 - utils.logger - WARNING - 发送接口的返回原始数据为：{"RequestId":"30abe843-5385-4e22-8246-0a81f8acbabe"}
